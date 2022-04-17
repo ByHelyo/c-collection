@@ -9,7 +9,8 @@ struct LinkedList linkedList_build()
     return linked_list;
 }
 
-size_t linkedList_size(struct LinkedList *linked_list) {
+size_t linkedList_size(struct LinkedList* linked_list)
+{
     return linked_list->size;
 }
 
@@ -29,7 +30,8 @@ void linkedList_push(struct LinkedList* linked_list, void* elt)
     linked_list->size += 1;
 }
 
-void linkedList_append(struct LinkedList *linked_list, void *elt) {
+void linkedList_append(struct LinkedList* linked_list, void* elt)
+{
     if (linked_list == NULL)
         errx(1, "linked_list is NULL");
 
@@ -39,7 +41,7 @@ void linkedList_append(struct LinkedList *linked_list, void *elt) {
         return;
     }
 
-    struct List *current_list = linked_list->head;
+    struct List* current_list = linked_list->head;
 
     while (current_list->next != NULL) {
         current_list = current_list->next;
@@ -54,6 +56,43 @@ void linkedList_append(struct LinkedList *linked_list, void *elt) {
 
     current_list->next = new_list;
     linked_list->size += 1;
+}
+
+int linkedList_insert(struct LinkedList* linked_list, size_t index, void* elt)
+{
+    if (linked_list == NULL)
+        errx(1, "linked_list is NULL");
+
+    if (index == 0) {
+        linkedList_push(linked_list, elt);
+
+        return 1;
+    }
+
+    if (index > linked_list->size) {
+        return 0;
+    }
+
+    struct List* prev_list = NULL;
+    struct List* current_list = linked_list->head;
+
+    while (index > 0) {
+        prev_list = current_list;
+        current_list = current_list->next;
+        index -= 1;
+    }
+
+    struct List* new_list = calloc(1, sizeof(struct List));
+    if (new_list == NULL)
+        err(1, "Failed allocation");
+
+    new_list->data = elt;
+    new_list->next = current_list;
+
+    prev_list->next = new_list;
+    linked_list->size += 1;
+
+    return 1;
 }
 
 void* linkedList_pop(struct LinkedList* linked_list, size_t index)
