@@ -2,7 +2,7 @@
 
 #include "../src/linkedlist.h"
 
-Test(linkedlist_build, build)
+Test(linkedList_build, build)
 {
     struct LinkedList linked_list = linkedList_build();
 
