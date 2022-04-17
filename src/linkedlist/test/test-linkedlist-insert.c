@@ -13,7 +13,7 @@ Test(linkedList_insert, err_insert_NULL, .exit_code = 1, .init = cr_redirect_std
     cr_assert_eq(ret, 0);
 }
 
-Test(linkedList_insert, insert_1_1)
+Test(linkedList_insert, insert_0_0)
 {
     struct LinkedList linked_list = linkedList_build();
 

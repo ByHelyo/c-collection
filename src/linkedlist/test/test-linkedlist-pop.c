@@ -3,14 +3,14 @@
 #include "../src/linkedlist.h"
 #include <criterion/redirect.h>
 
-Test(linkedList_pop, pop_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_pop, err_pop_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList* linked_list = NULL;
 
     linkedList_pop(linked_list, 0);
 }
 
-Test(linkedList_pop, pop_empty)
+Test(linkedList_pop, err_pop_empty)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -19,7 +19,6 @@ Test(linkedList_pop, pop_empty)
     // Check popped element
 
     cr_assert_eq(pop_elt, NULL);
-
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 0);
@@ -43,7 +42,6 @@ Test(linkedList_pop, pop_int_1_index_0)
     // Check value
     cr_assert_eq(push_elt1, *pop_elt);
 
-
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 0);
 
@@ -64,7 +62,6 @@ Test(linkedList_pop, err_pop_int_1_index_1)
 
     // Check address
     cr_assert_eq(NULL, pop_elt);
-
 
     // Check linked_list
     cr_assert_eq(linked_list.size, 1);
@@ -92,7 +89,6 @@ Test(linkedList_pop, pop_int_2_index_0)
     // Check value
     cr_assert_eq(push_elt2, *pop_elt);
 
-
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
@@ -119,7 +115,6 @@ Test(linkedList_pop, pop_int_2_index_1)
     // Check value
     cr_assert_eq(push_elt1, *pop_elt);
 
-
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
@@ -142,7 +137,6 @@ Test(linkedList_pop, err_pop_int_2_index_2)
 
     // Check address
     cr_assert_eq(NULL, pop_elt);
-
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
@@ -172,7 +166,6 @@ Test(linkedList_pop, pop_int_3_index_0)
     // Check value
     cr_assert_eq(push_elt3, *pop_elt);
 
-
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
@@ -200,7 +193,6 @@ Test(linkedList_pop, pop_int_3_index_1)
 
     // Check value
     cr_assert_eq(push_elt2, *pop_elt);
-
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
@@ -230,7 +222,6 @@ Test(linkedList_pop, pop_int_3_index_2)
     // Check value
     cr_assert_eq(push_elt1, *pop_elt);
 
-
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
@@ -255,7 +246,6 @@ Test(linkedList_pop, err_pop_int_3_index_3)
 
     // Check address
     cr_assert_eq(NULL, pop_elt);
-
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 3);
