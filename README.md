@@ -28,13 +28,13 @@ cd build
 
 ### Linked list
 
-Get the library liblinkedlist.so
+Build the library <strong>liblinkedlist.so</strong>
 ```
 make linkedlist
 ```
 
 Launch test
 ```
-make linkedlist_test
-./linkedlist_test
+make linkedlist-test
+./linkedlist-test
 ```
