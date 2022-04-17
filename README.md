@@ -28,7 +28,7 @@ cd build
 
 ### Linked list
 
-Get the library
+Get the library liblinkedlist.so
 ```
 make linkedlist
 ```
@@ -36,4 +36,5 @@ make linkedlist
 Launch test
 ```
 make linkedlist_test
+./linkedlist_test
 ```
