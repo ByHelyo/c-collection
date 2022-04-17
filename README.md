@@ -38,3 +38,6 @@ Launch tests
 make linkedlist-test
 ./linkedlist-test
 ```
+## Todo
+
+- [ ] Documentation
