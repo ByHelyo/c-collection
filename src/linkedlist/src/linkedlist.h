@@ -1,5 +1,5 @@
-#ifndef C_COLLECTIONS_LINKEDLIST_H
-#define C_COLLECTIONS_LINKEDLIST_H
+#ifndef C_COLLECTION_LINKEDLIST_H
+#define C_COLLECTION_LINKEDLIST_H
 
 #include "../../list/src/list.h"
 #include <stdlib.h>
@@ -15,4 +15,6 @@ void linkedList_push(struct LinkedList* linked_list, void* elt);
 
 void* linkedList_pop(struct LinkedList* linked_list, size_t index);
 
-#endif // C_COLLECTIONS_LINKEDLIST_H
+void linkedList_clear(struct LinkedList* linked_list, void (*free)(void*));
+
+#endif // C_COLLECTION_LINKEDLIST_H

@@ -1,5 +1,5 @@
-#ifndef C_COLLECTIONS_LIST_H
-#define C_COLLECTIONS_LIST_H
+#ifndef C_COLLECTION_LIST_H
+#define C_COLLECTION_LIST_H
 
 struct List {
     void* data;
@@ -7,4 +7,4 @@ struct List {
     struct List* next;
 };
 
-#endif // C_COLLECTIONS_LIST_H
+#endif // C_COLLECTION_LIST_H

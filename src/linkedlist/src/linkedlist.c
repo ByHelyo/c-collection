@@ -1,4 +1,5 @@
 #include "linkedlist.h"
+
 #include <err.h>
 
 struct LinkedList linkedList_build()
@@ -10,6 +11,9 @@ struct LinkedList linkedList_build()
 
 void linkedList_push(struct LinkedList* linked_list, void* elt)
 {
+    if (linked_list == NULL)
+        errx(1, "linked_list is NULL");
+
     struct List* list = calloc(1, sizeof(struct List));
 
     if (list == NULL)
@@ -24,6 +28,9 @@ void linkedList_push(struct LinkedList* linked_list, void* elt)
 
 void* linkedList_pop(struct LinkedList* linked_list, size_t index)
 {
+    if (linked_list == NULL)
+        errx(1, "linked_list is NULL");
+
     struct List* prev_list = NULL;
     struct List* current_list = linked_list->head;
 
@@ -56,4 +63,15 @@ void* linkedList_pop(struct LinkedList* linked_list, size_t index)
     free(current_list);
 
     return ret;
+}
+
+void linkedList_clear(struct LinkedList* linked_list, void (*free_function)(void*))
+{
+    while (linked_list->size > 0) {
+        void* popped_elt = linkedList_pop(linked_list, 0);
+
+        if (free_function != NULL) {
+            free_function(popped_elt);
+        }
+    }
 }
