@@ -33,7 +33,7 @@ Build the library <strong>liblinkedlist.so</strong>
 make linkedlist
 ```
 
-Launch test
+Launch tests
 ```
 make linkedlist-test
 ./linkedlist-test
