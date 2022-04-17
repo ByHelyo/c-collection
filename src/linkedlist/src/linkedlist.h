@@ -11,7 +11,11 @@ struct LinkedList {
 
 struct LinkedList linkedList_build();
 
+size_t linkedList_size(struct LinkedList *linked_list);
+
 void linkedList_push(struct LinkedList* linked_list, void* elt);
+
+void linkedList_append(struct LinkedList *linked_list, void* elt);
 
 void* linkedList_pop(struct LinkedList* linked_list, size_t index);
 

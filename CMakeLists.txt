@@ -13,7 +13,8 @@ add_library(linkedlist SHARED
 add_executable(linkedlist-test
         src/linkedlist/test/test-linkedlist-build.c
         src/linkedlist/test/test-linkedlist-pop.c
-        src/linkedlist/test/test-linkedlist-push.c)
+        src/linkedlist/test/test-linkedlist-push.c
+        src/linkedlist/test/test-linkedlist-append.c)
 target_link_libraries(linkedlist-test linkedlist criterion)
 target_compile_options(linkedlist-test PUBLIC -Werror)
 target_compile_options(linkedlist-test PUBLIC -Wall)
