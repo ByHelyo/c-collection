@@ -1,6 +1,6 @@
 #include "linkedlist.h"
 
-#include "../../list/src/list.h"
+#include "../../node.h"
 #include <err.h>
 
 struct LinkedList linkedList_build()
@@ -20,14 +20,14 @@ void linkedList_push(struct LinkedList *linked_list, void *elt)
     if (linked_list == NULL)
         errx(1, "linked_list is NULL");
 
-    struct List *list = calloc(1, sizeof(struct List));
-    if (list == NULL)
+    struct Node *node = calloc(1, sizeof(struct Node));
+    if (node == NULL)
         err(1, "Failed allocation");
 
-    list->next = linked_list->head;
-    list->data = elt;
+    node->next = linked_list->head;
+    node->data = elt;
 
-    linked_list->head = list;
+    linked_list->head = node;
     linked_list->size += 1;
 }
 
@@ -43,21 +43,21 @@ void linkedList_append(struct LinkedList *linked_list, void *elt)
         return;
     }
 
-    struct List *current_list = linked_list->head;
+    struct Node *current_node = linked_list->head;
 
-    while (current_list->next != NULL)
+    while (current_node->next != NULL)
     {
-        current_list = current_list->next;
+        current_node = current_node->next;
     }
 
-    struct List *new_list = calloc(1, sizeof(struct List));
-    if (new_list == NULL)
+    struct Node *node = calloc(1, sizeof(struct Node));
+    if (node == NULL)
         err(1, "Failed allocation");
 
-    new_list->data = elt;
-    new_list->next = NULL;
+    node->data = elt;
+    node->next = NULL;
 
-    current_list->next = new_list;
+    current_node->next = node;
     linked_list->size += 1;
 }
 
@@ -78,24 +78,24 @@ int linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
         return 0;
     }
 
-    struct List *prev_list = NULL;
-    struct List *current_list = linked_list->head;
+    struct Node *prev_node = NULL;
+    struct Node *current_node = linked_list->head;
 
     while (index > 0)
     {
-        prev_list = current_list;
-        current_list = current_list->next;
+        prev_node = current_node;
+        current_node = current_node->next;
         index -= 1;
     }
 
-    struct List *new_list = calloc(1, sizeof(struct List));
-    if (new_list == NULL)
+    struct Node *node = calloc(1, sizeof(struct Node));
+    if (node == NULL)
         err(1, "Failed allocation");
 
-    new_list->data = elt;
-    new_list->next = current_list;
+    node->data = elt;
+    node->next = current_node;
 
-    prev_list->next = new_list;
+    prev_node->next = node;
     linked_list->size += 1;
 
     return 1;
@@ -106,29 +106,29 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
     if (linked_list == NULL)
         errx(1, "linked_list is NULL");
 
-    struct List *prev_list = NULL;
-    struct List *current_list = linked_list->head;
+    struct Node *prev_node = NULL;
+    struct Node *current_node = linked_list->head;
 
-    while (current_list != NULL && index > 0)
+    while (current_node != NULL && index > 0)
     {
-        prev_list = current_list;
-        current_list = current_list->next;
+        prev_node = current_node;
+        current_node = current_node->next;
 
         index -= 1;
     }
 
-    if (current_list == NULL)
+    if (current_node == NULL)
     {
         return NULL;
     }
 
-    void *ret = current_list->data;
+    void *ret = current_node->data;
 
     linked_list->size -= 1;
 
     // If the popped element is at index 0
     // linked_list->head points to the next element
-    if (prev_list == NULL)
+    if (prev_node == NULL)
     {
         linked_list->head = linked_list->head->next;
     }
@@ -136,10 +136,10 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
     // Otherwise, prev_list points to the next element
     else
     {
-        prev_list->next = current_list->next;
+        prev_node->next = current_node->next;
     }
 
-    free(current_list);
+    free(current_node);
 
     return ret;
 }

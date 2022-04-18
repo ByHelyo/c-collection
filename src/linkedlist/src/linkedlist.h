@@ -3,11 +3,11 @@
 
 #include <stdlib.h>
 
-struct List;
+struct Node;
 
 struct LinkedList
 {
-    struct List *head;
+    struct Node *head;
     size_t size;
 };
 

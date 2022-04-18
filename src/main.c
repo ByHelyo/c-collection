@@ -3,5 +3,7 @@
 
 int main()
 {
+    struct LinkedList l = linkedList_build();
+
     return 0;
 }

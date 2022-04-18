@@ -6,3 +6,4 @@ set(CMAKE_C_STANDARD 99)
 
 add_subdirectory(src/linkedlist)
 add_executable(c-collection src/main.c)
+target_link_libraries(c-collection linkedlist)

@@ -1,4 +1,4 @@
-#include "../../list/src/list.h"
+#include "../../node.h"
 #include "../src/linkedlist.h"
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>

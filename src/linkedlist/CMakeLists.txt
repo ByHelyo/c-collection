@@ -1,7 +1,7 @@
 add_library(linkedlist STATIC
         src/linkedlist.c
         src/linkedlist.h
-        ../list/src/list.h
+        ../node.h
         )
 
 add_executable(linkedlist-test
