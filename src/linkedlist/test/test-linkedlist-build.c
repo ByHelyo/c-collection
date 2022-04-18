@@ -1,6 +1,6 @@
-#include <criterion/criterion.h>
-
+#include "../../list/src/list.h"
 #include "../src/linkedlist.h"
+#include <criterion/criterion.h>
 
 Test(linkedList_build, build)
 {

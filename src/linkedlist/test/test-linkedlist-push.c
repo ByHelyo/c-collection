@@ -1,6 +1,6 @@
-#include <criterion/criterion.h>
-
+#include "../../list/src/list.h"
 #include "../src/linkedlist.h"
+#include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
 Test(linkedList, err_push_NULL, .exit_code = 1, .init = cr_redirect_stderr)
