@@ -23,12 +23,11 @@ cmake -S . -B build
 cd build
 ```
 
-
 ## Getting Started
 
 ### Linked list
 
-Build the library <strong>liblinkedlist.so</strong>
+Build the library <strong>liblinkedlist.a</strong>
 ```
 make linkedlist
 ```

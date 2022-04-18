@@ -4,9 +4,8 @@ project(c-collection)
 
 set(CMAKE_C_STANDARD 99)
 
-add_library(linkedlist SHARED
+add_library(linkedlist STATIC
         src/linkedlist/src/linkedlist.c
-        src/linkedlist/src/linkedlist.h
         src/list/src/list.h
 )
 
@@ -26,6 +25,4 @@ target_compile_options(linkedlist-test PUBLIC -fsanitize=address)
 target_compile_options(linkedlist-test PUBLIC -g)
 target_link_options(linkedlist-test PUBLIC -fsanitize=address)
 
-
-add_executable(c-collections src/main.c)
-target_link_libraries(c-collections linkedlist)
+add_executable(c-collection src/main.c)
