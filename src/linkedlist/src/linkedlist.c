@@ -1,5 +1,6 @@
 #include "linkedlist.h"
 
+#include "../../list/src/list.h"
 #include <err.h>
 
 struct LinkedList linkedList_build()

@@ -1,8 +1,9 @@
 #ifndef C_COLLECTION_LINKEDLIST_H
 #define C_COLLECTION_LINKEDLIST_H
 
-#include "../../list/src/list.h"
 #include <stdlib.h>
+
+struct List;
 
 struct LinkedList
 {
