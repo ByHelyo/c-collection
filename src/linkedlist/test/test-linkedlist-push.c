@@ -5,7 +5,7 @@
 
 Test(linkedList, err_push_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
-    struct LinkedList* linked_list = NULL;
+    struct LinkedList *linked_list = NULL;
 
     int elt1 = 1;
 
@@ -29,7 +29,7 @@ Test(linkedList_push, push_int)
     cr_assert_eq(linked_list.head->data, &elt1);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->data), elt1);
+    cr_assert_eq(*((int *)linked_list.head->data), elt1);
 
     linkedList_clear(&linked_list, NULL);
 }
@@ -53,7 +53,7 @@ Test(linkedList_push, push_2_int)
     cr_assert_eq(linked_list.head->data, &elt2);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->data), elt2);
+    cr_assert_eq(*((int *)linked_list.head->data), elt2);
 
     linkedList_clear(&linked_list, NULL);
 }

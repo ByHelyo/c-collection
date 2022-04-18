@@ -5,7 +5,7 @@
 
 Test(linkedList_append, err_append_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
-    struct LinkedList* linked_list = NULL;
+    struct LinkedList *linked_list = NULL;
 
     int elt1 = 1;
 
@@ -26,7 +26,7 @@ Test(linkedList_append, append_1)
     cr_assert_eq(linked_list.head->data, &elt1);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->data), elt1);
+    cr_assert_eq(*((int *)linked_list.head->data), elt1);
 
     // Check linked_list-size
     cr_assert_eq(linked_list.size, 1);
@@ -50,7 +50,7 @@ Test(linkedList_append, append_2)
     cr_assert_eq(linked_list.head->next->data, &elt2);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->next->data), elt2);
+    cr_assert_eq(*((int *)linked_list.head->next->data), elt2);
 
     // Check linked_list-size
     cr_assert_eq(linked_list.size, 2);

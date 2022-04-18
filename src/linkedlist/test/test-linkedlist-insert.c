@@ -5,7 +5,7 @@
 
 Test(linkedList_insert, err_insert_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
-    struct LinkedList* linked_list = NULL;
+    struct LinkedList *linked_list = NULL;
 
     int elt1 = 1;
 
@@ -28,7 +28,7 @@ Test(linkedList_insert, insert_0_0)
     cr_assert_eq(linked_list.head->data, &elt1);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->data), elt1);
+    cr_assert_eq(*((int *)linked_list.head->data), elt1);
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
@@ -59,7 +59,7 @@ Test(linkedList_insert, insert_3_0)
     cr_assert_eq(linked_list.head->data, &inserted_elt);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->data), inserted_elt);
+    cr_assert_eq(*((int *)linked_list.head->data), inserted_elt);
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 4);
@@ -90,7 +90,7 @@ Test(linkedList_insert, insert_3_1)
     cr_assert_eq(linked_list.head->next->data, &inserted_elt);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->next->data), inserted_elt);
+    cr_assert_eq(*((int *)linked_list.head->next->data), inserted_elt);
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 4);
@@ -121,7 +121,7 @@ Test(linkedList_insert, insert_3_2)
     cr_assert_eq(linked_list.head->next->next->data, &inserted_elt);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->next->next->data), inserted_elt);
+    cr_assert_eq(*((int *)linked_list.head->next->next->data), inserted_elt);
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 4);
@@ -152,7 +152,7 @@ Test(linkedList_insert, insert_3_3)
     cr_assert_eq(linked_list.head->next->next->next->data, &inserted_elt);
 
     // Check value
-    cr_assert_eq(*((int*)linked_list.head->next->next->next->data), inserted_elt);
+    cr_assert_eq(*((int *)linked_list.head->next->next->next->data), inserted_elt);
 
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 4);
