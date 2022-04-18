@@ -20,4 +20,6 @@ void stack_push(struct Stack *stack, void *elt);
 
 void *stack_pop(struct Stack *stack);
 
+void stack_clear(struct Stack *stack, void (*free_function)(void *));
+
 #endif // C_COLLECTION_STACK_H

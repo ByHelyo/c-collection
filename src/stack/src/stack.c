@@ -48,3 +48,16 @@ void *stack_pop(struct Stack *stack)
 
     return ret;
 }
+
+void stack_clear(struct Stack *stack, void (*free_function)(void *))
+{
+    while (stack->size > 0)
+    {
+        void *popped_elt = stack_pop(stack);
+
+        if (free_function != NULL)
+        {
+            free_function(popped_elt);
+        }
+    }
+}

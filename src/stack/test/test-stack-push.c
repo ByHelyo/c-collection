@@ -30,6 +30,8 @@ Test(stack_push, push_1)
 
     // Check value
     cr_assert_eq(*((int *)stack.head->data), elt1);
+
+    stack_clear(&stack, NULL);
 }
 
 Test(stack_push, push_2)
@@ -52,4 +54,6 @@ Test(stack_push, push_2)
 
     // Check value
     cr_assert_eq(*((int *)stack.head->data), elt2);
+
+    stack_clear(&stack, NULL);
 }

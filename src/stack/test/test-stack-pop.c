@@ -44,6 +44,8 @@ Test(stack_pop, pop_int_1)
 
     // Check linked_list->size
     cr_assert_eq(stack.size, 0);
+
+    stack_clear(&stack, NULL);
 }
 
 Test(stack_pop, pop_int_2)
@@ -68,4 +70,6 @@ Test(stack_pop, pop_int_2)
 
     // Check linked_list->size
     cr_assert_eq(stack.size, 1);
+
+    stack_clear(&stack, NULL);
 }
