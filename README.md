@@ -17,7 +17,8 @@ A collection of common data structures.
 - CMake (>= 3.22)
 - Criterion (testing)
 
-Build the project
+### Building
+
 ```
 cmake -S . -B build
 cd build
@@ -36,4 +37,20 @@ Launch tests
 ```
 make linkedlist-test
 ./linkedlist-test
+```
+
+### Stack
+
+Build the library <strong>liblinkedlist.a</strong>
+
+```
+make stack
+```
+
+> Note this stack version is using linked list implementation
+
+Launch tests
+```
+make stack-test
+./stack-test
 ```
