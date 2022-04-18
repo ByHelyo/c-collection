@@ -3,7 +3,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(linkedList, err_push_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_push, err_push_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList *linked_list = NULL;
 

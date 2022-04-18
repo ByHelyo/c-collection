@@ -1,5 +1,4 @@
 #include "linkedlist.h"
-
 #include "../../node.h"
 #include <err.h>
 
