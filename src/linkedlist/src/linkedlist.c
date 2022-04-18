@@ -105,6 +105,9 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
     if (linked_list == NULL)
         errx(1, "linked_list is NULL");
 
+    if (index >= linked_list->size)
+        return NULL;
+
     struct Node *prev_node = NULL;
     struct Node *current_node = linked_list->head;
 
@@ -114,11 +117,6 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
         current_node = current_node->next;
 
         index -= 1;
-    }
-
-    if (current_node == NULL)
-    {
-        return NULL;
     }
 
     void *ret = current_node->data;
