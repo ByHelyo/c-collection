@@ -36,12 +36,11 @@ make linkedlist
 Launch tests
 ```
 make linkedlist-test
-./linkedlist-test
 ```
 
 ### Stack
 
-Build the library <strong>liblinkedlist.a</strong>
+Build the library <strong>liblibstack.a</strong>
 
 ```
 make stack
@@ -52,5 +51,4 @@ make stack
 Launch tests
 ```
 make stack-test
-./stack-test
 ```
