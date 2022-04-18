@@ -14,6 +14,10 @@ struct Stack
 
 struct Stack stack_build();
 
+size_t stack_size(struct Stack *stack);
+
 void stack_push(struct Stack *stack, void *elt);
+
+void *stack_pop(struct Stack *stack);
 
 #endif // C_COLLECTION_STACK_H

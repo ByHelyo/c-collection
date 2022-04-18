@@ -12,7 +12,7 @@ Test(stack_push, err_push_NULL, .exit_code = 1, .init = cr_redirect_stderr)
     stack_push(stack, &elt1);
 }
 
-Test(stack_push, _push_1)
+Test(stack_push, push_1)
 {
     struct Stack stack = stack_build();
 
@@ -32,7 +32,7 @@ Test(stack_push, _push_1)
     cr_assert_eq(*((int *)stack.head->data), elt1);
 }
 
-Test(stack_push, _push_2)
+Test(stack_push, push_2)
 {
     struct Stack stack = stack_build();
 

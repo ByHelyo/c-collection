@@ -9,6 +9,11 @@ struct Stack stack_build()
     return stack;
 }
 
+size_t stack_size(struct Stack *stack)
+{
+    return stack->size;
+}
+
 void stack_push(struct Stack *stack, void *elt)
 {
     if (stack == NULL)
@@ -23,4 +28,23 @@ void stack_push(struct Stack *stack, void *elt)
 
     stack->head = node;
     stack->size += 1;
+}
+
+void *stack_pop(struct Stack *stack)
+{
+    if (stack == NULL)
+        errx(1, "stack is NULL");
+
+    if (stack->size == 0)
+        return NULL;
+
+    struct Node *first_node = stack->head;
+    void *ret = first_node->data;
+
+    stack->size -= 1;
+    stack->head = stack->head->next;
+
+    free(first_node);
+
+    return ret;
 }
