@@ -40,7 +40,7 @@ make linkedlist-test
 
 ### Stack
 
-Build the library <strong>liblibstack.a</strong>
+Build the library <strong>libstack.a</strong>
 
 ```
 make stack
