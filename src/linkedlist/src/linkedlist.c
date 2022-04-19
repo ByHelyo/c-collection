@@ -111,7 +111,7 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
     struct Node *prev_node = NULL;
     struct Node *current_node = linked_list->head;
 
-    while (current_node != NULL && index > 0)
+    while (index > 0)
     {
         prev_node = current_node;
         current_node = current_node->next;
@@ -139,6 +139,25 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
     free(current_node);
 
     return ret;
+}
+
+void *linkedList_get(struct LinkedList *linked_list, size_t index)
+{
+    if (linked_list == NULL)
+        errx(1, "linked_list is NULL");
+
+    if (index >= linked_list->size)
+        return NULL;
+
+    struct Node *current_node = linked_list->head;
+
+    while (index > 0)
+    {
+        current_node = current_node->next;
+        index -= 1;
+    }
+
+    return current_node->data;
 }
 
 void linkedList_clear(struct LinkedList *linked_list, void (*free_function)(void *))

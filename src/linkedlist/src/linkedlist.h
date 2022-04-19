@@ -64,6 +64,15 @@ int linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt);
 void *linkedList_pop(struct LinkedList *linked_list, size_t index);
 
 /**
+ * get an element at the specified ''index'' in the linked list and return it
+ *
+ * @param linked_list
+ * @param index
+ * @return element specified
+ */
+void *linkedList_get(struct LinkedList *linked_list, size_t index);
+
+/**
  * Clear the linked list
  *
  * A free function can be provided to free each element otherwise ''free_function'' must be set to NULL

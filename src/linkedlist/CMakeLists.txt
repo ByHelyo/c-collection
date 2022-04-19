@@ -7,6 +7,7 @@ add_library(linkedlist STATIC
 add_executable(linkedlist-test
         test/test-linkedlist-append.c
         test/test-linkedlist-build.c
+        test/test-linkedlist-get.c
         test/test-linkedlist-insert.c
         test/test-linkedlist-pop.c
         test/test-linkedlist-push.c)
