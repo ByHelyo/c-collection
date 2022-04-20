@@ -5,6 +5,7 @@ add_library(simple-queue STATIC
 
 add_executable(simple-queue-test
         test/test-simple-queue-build.c
+        test/test-simple-queue-dequeue.c
         test/test-simple-queue-enqueue.c)
 
 target_compile_options(simple-queue-test PUBLIC -Werror)

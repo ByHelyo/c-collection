@@ -36,3 +36,21 @@ void simpleQueue_enqueue(struct SimpleQueue *simple_queue, void *elt)
 
     simple_queue->size += 1;
 }
+
+void *simpleQueue_dequeue(struct SimpleQueue *simple_queue)
+{
+    if (simple_queue == NULL)
+        errx(1, "stack is NULL");
+
+    if (simple_queue->size == 0)
+        errx(1, "stack is empty");
+
+    struct Node *head_node = simple_queue->head;
+    void *ret = head_node->data;
+
+    simple_queue->head = simple_queue->head->next;
+    simple_queue->size -= 1;
+
+    free(head_node);
+    return ret;
+}
