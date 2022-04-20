@@ -31,6 +31,9 @@ Test(simpleQueue_dequeue, dequeue_1)
 
     cr_assert_eq(dequeued, &elt1);
     cr_assert_eq(*dequeued, elt1);
+
+    // Check simple_queue
+    cr_assert_eq(simple_queue.size, 0);
 }
 
 Test(simpleQueue_dequeue, dequeue_2)
@@ -49,6 +52,19 @@ Test(simpleQueue_dequeue, dequeue_2)
 
     cr_assert_eq(dequeued, &elt1);
     cr_assert_eq(*dequeued, elt1);
+
+    // Check simple_queue
+    cr_assert_eq(simple_queue.size, 1);
+
+    dequeued = simpleQueue_dequeue(&simple_queue);
+
+    // Check dequeued element
+
+    cr_assert_eq(dequeued, &elt2);
+    cr_assert_eq(*dequeued, elt2);
+
+    // Check simple_queue
+    cr_assert_eq(simple_queue.size, 0);
 }
 
 Test(simpleQueue_dequeue, dequeue_3)
@@ -69,4 +85,27 @@ Test(simpleQueue_dequeue, dequeue_3)
 
     cr_assert_eq(dequeued, &elt1);
     cr_assert_eq(*dequeued, elt1);
+
+    // Check simple_queue
+    cr_assert_eq(simple_queue.size, 2);
+
+    dequeued = simpleQueue_dequeue(&simple_queue);
+
+    // Check dequeued element
+
+    cr_assert_eq(dequeued, &elt2);
+    cr_assert_eq(*dequeued, elt2);
+
+    // Check simple_queue
+    cr_assert_eq(simple_queue.size, 1);
+
+    dequeued = simpleQueue_dequeue(&simple_queue);
+
+    // Check dequeued element
+
+    cr_assert_eq(dequeued, &elt3);
+    cr_assert_eq(*dequeued, elt3);
+
+    // Check simple_queue
+    cr_assert_eq(simple_queue.size, 0);
 }
