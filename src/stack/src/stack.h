@@ -45,6 +45,14 @@ void stack_push(struct Stack *stack, void *elt);
 void *stack_pop(struct Stack *stack);
 
 /**
+ * Get the top element of the stack
+ *
+ * @param stack
+ * @return the top element
+ */
+void *stack_peek(struct Stack *stack);
+
+/**
  * Clear the stack
  *
  * A free function can be provided to free each element otherwise ''free_function''  must be set to NULL

@@ -49,6 +49,17 @@ void *stack_pop(struct Stack *stack)
     return ret;
 }
 
+void *stack_peek(struct Stack *stack)
+{
+    if (stack == NULL)
+        errx(1, "stack is NULL");
+
+    if (stack->size == 0)
+        return NULL;
+
+    return stack->head->data;
+}
+
 void stack_clear(struct Stack *stack, void (*free_function)(void *))
 {
     while (stack->size > 0)

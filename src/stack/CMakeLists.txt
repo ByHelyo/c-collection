@@ -5,6 +5,7 @@ add_library(stack STATIC
 
 add_executable(stack-test
         test/test-stack-build.c
+        test/test-stack-peek.c
         test/test-stack-pop.c
         test/test-stack-push.c)
 
