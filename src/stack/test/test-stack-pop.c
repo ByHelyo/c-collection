@@ -3,7 +3,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(stack_push, err_pop_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(stack_pop, err_pop_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct Stack *stack = NULL;
 
