@@ -10,15 +10,11 @@ Test(linkedList_get, err_get_NULL, .exit_code = 1, .init = cr_redirect_stderr)
     linkedList_get(linked_list, 0);
 }
 
-Test(linkedList_get, get_empty)
+Test(linkedList_get, get_empty, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
-    void *got = linkedList_get(&linked_list, 10);
-
-    cr_assert_eq(NULL, got);
-
-    cr_assert_eq(linked_list.size, 0);
+    linkedList_get(&linked_list, 10);
 }
 
 Test(linkedList_get, get_0)

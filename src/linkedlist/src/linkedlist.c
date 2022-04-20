@@ -73,7 +73,7 @@ void linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
     }
 
     if (index > linked_list->size)
-        errx(1, "given index is higher than the size of the linked list");
+        errx(1, "Given index is higher than the size of the linked list");
 
     struct Node *prev_node = NULL;
     struct Node *current_node = linked_list->head;
@@ -102,7 +102,7 @@ void *linkedList_pop(struct LinkedList *linked_list, size_t index)
         errx(1, "linked_list is NULL");
 
     if (index >= linked_list->size)
-        return NULL;
+        errx(1, "Given index is higher than the size of the linked list");
 
     struct Node *prev_node = NULL;
     struct Node *current_node = linked_list->head;
@@ -143,7 +143,7 @@ void *linkedList_get(struct LinkedList *linked_list, size_t index)
         errx(1, "linked_list is NULL");
 
     if (index >= linked_list->size)
-        return NULL;
+        errx(1, "Given index is higher than the size of the linked list");
 
     struct Node *current_node = linked_list->head;
 
