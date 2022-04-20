@@ -48,10 +48,8 @@ void linkedList_append(struct LinkedList *linked_list, void *elt);
  * @param linked_list
  * @param index
  * @param elt
- * @return 1 if the element is inserted
- *         Otherwise, return 0
  */
-int linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt);
+void linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt);
 
 /**
  * Pop an element at the specified ''index'' in the linked list and return it

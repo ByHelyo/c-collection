@@ -60,7 +60,7 @@ void linkedList_append(struct LinkedList *linked_list, void *elt)
     linked_list->size += 1;
 }
 
-int linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
+void linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
 {
     if (linked_list == NULL)
         errx(1, "linked_list is NULL");
@@ -69,13 +69,11 @@ int linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
     {
         linkedList_push(linked_list, elt);
 
-        return 1;
+        return;
     }
 
     if (index > linked_list->size)
-    {
-        return 0;
-    }
+        errx(1, "given index is higher than the size of the linked list");
 
     struct Node *prev_node = NULL;
     struct Node *current_node = linked_list->head;
@@ -96,8 +94,6 @@ int linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
 
     prev_node->next = node;
     linked_list->size += 1;
-
-    return 1;
 }
 
 void *linkedList_pop(struct LinkedList *linked_list, size_t index)
