@@ -100,3 +100,18 @@ Test(linkedList_get, get_2)
 
     linkedList_clear(&linked_list, NULL);
 }
+
+Test(linkedList_get, get_3, .exit_code = 1, .init = cr_redirect_stderr)
+{
+    struct LinkedList linked_list = linkedList_build();
+
+    int elt1 = 1;
+    int elt2 = 2;
+    int elt3 = 3;
+
+    linkedList_push(&linked_list, &elt3);
+    linkedList_push(&linked_list, &elt2);
+    linkedList_push(&linked_list, &elt1);
+
+    linkedList_get(&linked_list, 3);
+}
