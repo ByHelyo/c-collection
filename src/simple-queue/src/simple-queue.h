@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 
+struct Node;
+
 struct SimpleQueue
 {
     struct Node *head;
@@ -12,5 +14,7 @@ struct SimpleQueue
 };
 
 struct SimpleQueue simpleQueue_build();
+
+void simpleQueue_enqueue(struct SimpleQueue *simple_queue, void *elt);
 
 #endif // C_COLLECTION_SIMPLE_QUEUE_H
