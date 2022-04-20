@@ -19,4 +19,6 @@ void simpleQueue_enqueue(struct SimpleQueue *simple_queue, void *elt);
 
 void *simpleQueue_dequeue(struct SimpleQueue *simple_queue);
 
+void *simpleQueue_peek(struct SimpleQueue *simple_queue);
+
 #endif // C_COLLECTION_SIMPLE_QUEUE_H

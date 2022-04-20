@@ -54,3 +54,14 @@ void *simpleQueue_dequeue(struct SimpleQueue *simple_queue)
     free(head_node);
     return ret;
 }
+
+void *simpleQueue_peek(struct SimpleQueue *simple_queue)
+{
+    if (simple_queue == NULL)
+        errx(1, "stack is NULL");
+
+    if (simple_queue->size == 0)
+        errx(1, "stack is empty");
+
+    return simple_queue->head->data;
+}
