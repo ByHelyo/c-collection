@@ -10,17 +10,11 @@ Test(stack_peek, err_peek_NULL, .exit_code = 1, .init = cr_redirect_stderr)
     stack_peek(stack);
 }
 
-Test(stack_peek, err_peek_empty)
+Test(stack_peek, err_peek_empty, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct Stack stack = stack_build();
 
-    void *ret = stack_peek(&stack);
-
-    // Check peeked address
-    cr_assert_eq(ret, NULL);
-
-    // Check stack
-    cr_assert_eq(stack.size, 0);
+    stack_peek(&stack);
 }
 
 Test(stack_peek, err_peek_1)

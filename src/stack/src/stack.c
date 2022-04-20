@@ -36,7 +36,7 @@ void *stack_pop(struct Stack *stack)
         errx(1, "stack is NULL");
 
     if (stack->size == 0)
-        return NULL;
+        errx(1, "stack is empty");
 
     struct Node *first_node = stack->head;
     void *ret = first_node->data;
@@ -55,7 +55,7 @@ void *stack_peek(struct Stack *stack)
         errx(1, "stack is NULL");
 
     if (stack->size == 0)
-        return NULL;
+        errx(1, "stack is empty");
 
     return stack->head->data;
 }

@@ -57,7 +57,6 @@ void linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt);
  * @param linked_list
  * @param index
  * @return popped element
- *         NULL if the stack is empty
  */
 void *linkedList_pop(struct LinkedList *linked_list, size_t index);
 

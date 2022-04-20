@@ -40,7 +40,6 @@ void stack_push(struct Stack *stack, void *elt);
  *
  * @param stack
  * @return popped element
- *         NULL if the stack is empty
  */
 void *stack_pop(struct Stack *stack);
 
