@@ -65,3 +65,16 @@ void *simpleQueue_peek(struct SimpleQueue *simple_queue)
 
     return simple_queue->head->data;
 }
+
+void simpleQueue_clear(struct SimpleQueue *simple_queue, void(*free_function)(void *))
+{
+    while (simple_queue->size > 0)
+    {
+        void *dequeued_elt = simpleQueue_dequeue(simple_queue);
+
+        if (free_function != NULL)
+        {
+            free_function(dequeued_elt);
+        }
+    }
+}

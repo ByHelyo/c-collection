@@ -31,6 +31,8 @@ Test(simpleQueue_enqueue, enqueue_1)
     cr_assert_eq(*((int *)simple_queue.tail->data), elt1);
 
     cr_assert_eq(simple_queue.size, 1);
+
+    simpleQueue_clear(&simple_queue, NULL);
 }
 
 Test(simpleQueue_enqueue, enqueue_2)
@@ -54,6 +56,8 @@ Test(simpleQueue_enqueue, enqueue_2)
     cr_assert_eq(*((int *)simple_queue.tail->data), elt2);
 
     cr_assert_eq(simple_queue.size, 2);
+
+    simpleQueue_clear(&simple_queue, NULL);
 }
 
 Test(simpleQueue_enqueue, enqueue_3)
@@ -79,4 +83,6 @@ Test(simpleQueue_enqueue, enqueue_3)
     cr_assert_eq(*((int *)simple_queue.tail->data), elt3);
 
     cr_assert_eq(simple_queue.size, 3);
+
+    simpleQueue_clear(&simple_queue, NULL);
 }

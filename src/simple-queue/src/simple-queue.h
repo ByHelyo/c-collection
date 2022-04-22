@@ -21,4 +21,6 @@ void *simpleQueue_dequeue(struct SimpleQueue *simple_queue);
 
 void *simpleQueue_peek(struct SimpleQueue *simple_queue);
 
+void simpleQueue_clear(struct SimpleQueue *simple_queue, void(*free_function)(void *));
+
 #endif // C_COLLECTION_SIMPLE_QUEUE_H
