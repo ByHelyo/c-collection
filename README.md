@@ -52,3 +52,18 @@ Launch tests
 ```
 make stack-test
 ```
+
+### Simple Queue
+
+Build the library <strong>libsimple-queue.a</strong>
+
+```
+make simple-queue
+```
+
+> Note this simple queue version is using linked list implementation
+
+Launch tests
+```
+make simple-queue-test
+```
