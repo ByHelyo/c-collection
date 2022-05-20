@@ -9,8 +9,9 @@ add_executable(linkedlist-test
         test/test-linkedlist-build.c
         test/test-linkedlist-get.c
         test/test-linkedlist-insert.c
-        test/test-linkedlist-remove.c
-        test/test-linkedlist-push.c)
+        test/test-linkedlist-pop.c
+        test/test-linkedlist-push.c
+        test/test-linkedlist-remove.c)
 
 target_compile_options(linkedlist-test PUBLIC -Werror)
 target_compile_options(linkedlist-test PUBLIC -Wall)
