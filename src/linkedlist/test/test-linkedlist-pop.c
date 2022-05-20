@@ -3,21 +3,21 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(linkedList_pop, err_pop_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, err_pop_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList *linked_list = NULL;
 
-    linkedList_pop(linked_list, 0);
+    linkedList_remove(linked_list, 0);
 }
 
-Test(linkedList_pop, err_pop_empty, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, err_pop_empty, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
-    linkedList_pop(&linked_list, 0);
+    linkedList_remove(&linked_list, 0);
 }
 
-Test(linkedList_pop, pop_size_1_index_0)
+Test(linkedList_remove, pop_size_1_index_0)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -25,7 +25,7 @@ Test(linkedList_pop, pop_size_1_index_0)
 
     linkedList_push(&linked_list, &push_elt1);
 
-    int *pop_elt = linkedList_pop(&linked_list, 0);
+    int *pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -39,7 +39,7 @@ Test(linkedList_pop, pop_size_1_index_0)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, err_pop_size_1_index_1, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, err_pop_size_1_index_1, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -47,10 +47,10 @@ Test(linkedList_pop, err_pop_size_1_index_1, .exit_code = 1, .init = cr_redirect
 
     linkedList_push(&linked_list, &push_elt1);
 
-    linkedList_pop(&linked_list, 1);
+    linkedList_remove(&linked_list, 1);
 }
 
-Test(linkedList_pop, pop_size_2_index_0)
+Test(linkedList_remove, pop_size_2_index_0)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -60,7 +60,7 @@ Test(linkedList_pop, pop_size_2_index_0)
     linkedList_push(&linked_list, &push_elt1);
     linkedList_push(&linked_list, &push_elt2);
 
-    int *pop_elt = linkedList_pop(&linked_list, 0);
+    int *pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -76,7 +76,7 @@ Test(linkedList_pop, pop_size_2_index_0)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_pop, pop_size_2_index_1)
+Test(linkedList_remove, pop_size_2_index_1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -86,7 +86,7 @@ Test(linkedList_pop, pop_size_2_index_1)
     linkedList_push(&linked_list, &push_elt1);
     linkedList_push(&linked_list, &push_elt2);
 
-    int *pop_elt = linkedList_pop(&linked_list, 1);
+    int *pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -102,7 +102,7 @@ Test(linkedList_pop, pop_size_2_index_1)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_pop, err_pop_size_2_index_2, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, err_pop_size_2_index_2, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -112,10 +112,10 @@ Test(linkedList_pop, err_pop_size_2_index_2, .exit_code = 1, .init = cr_redirect
     linkedList_push(&linked_list, &push_elt1);
     linkedList_push(&linked_list, &push_elt2);
 
-    linkedList_pop(&linked_list, 2);
+    linkedList_remove(&linked_list, 2);
 }
 
-Test(linkedList_pop, pop_size_3_index_0)
+Test(linkedList_remove, pop_size_3_index_0)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -127,7 +127,7 @@ Test(linkedList_pop, pop_size_3_index_0)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 0);
+    int *pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -143,7 +143,7 @@ Test(linkedList_pop, pop_size_3_index_0)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_pop, pop_size_3_index_1)
+Test(linkedList_remove, pop_size_3_index_1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -155,7 +155,7 @@ Test(linkedList_pop, pop_size_3_index_1)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 1);
+    int *pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -171,7 +171,7 @@ Test(linkedList_pop, pop_size_3_index_1)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_pop, pop_size_3_index_2)
+Test(linkedList_remove, pop_size_3_index_2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -183,7 +183,7 @@ Test(linkedList_pop, pop_size_3_index_2)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 2);
+    int *pop_elt = linkedList_remove(&linked_list, 2);
 
     // Check popped element
 
@@ -199,7 +199,7 @@ Test(linkedList_pop, pop_size_3_index_2)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_pop, err_pop_size_3_index_3, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, err_pop_size_3_index_3, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -211,10 +211,10 @@ Test(linkedList_pop, err_pop_size_3_index_3, .exit_code = 1, .init = cr_redirect
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    linkedList_pop(&linked_list, 3);
+    linkedList_remove(&linked_list, 3);
 }
 
-Test(linkedList_pop, pop_2_v1)
+Test(linkedList_remove, pop_2_v1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -224,7 +224,7 @@ Test(linkedList_pop, pop_2_v1)
     linkedList_push(&linked_list, &push_elt1);
     linkedList_push(&linked_list, &push_elt2);
 
-    int *pop_elt = linkedList_pop(&linked_list, 0);
+    int *pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -237,7 +237,7 @@ Test(linkedList_pop, pop_2_v1)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -251,7 +251,7 @@ Test(linkedList_pop, pop_2_v1)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_2_v2)
+Test(linkedList_remove, pop_2_v2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -261,7 +261,7 @@ Test(linkedList_pop, pop_2_v2)
     linkedList_push(&linked_list, &push_elt1);
     linkedList_push(&linked_list, &push_elt2);
 
-    int *pop_elt = linkedList_pop(&linked_list, 1);
+    int *pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -274,7 +274,7 @@ Test(linkedList_pop, pop_2_v2)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -288,7 +288,7 @@ Test(linkedList_pop, pop_2_v2)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_3_v1)
+Test(linkedList_remove, pop_3_v1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -300,7 +300,7 @@ Test(linkedList_pop, pop_3_v1)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 0);
+    int *pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -313,7 +313,7 @@ Test(linkedList_pop, pop_3_v1)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -326,7 +326,7 @@ Test(linkedList_pop, pop_3_v1)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -340,7 +340,7 @@ Test(linkedList_pop, pop_3_v1)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_3_v2)
+Test(linkedList_remove, pop_3_v2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -352,7 +352,7 @@ Test(linkedList_pop, pop_3_v2)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 2);
+    int *pop_elt = linkedList_remove(&linked_list, 2);
 
     // Check popped element
 
@@ -365,7 +365,7 @@ Test(linkedList_pop, pop_3_v2)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
-    pop_elt = linkedList_pop(&linked_list, 1);
+    pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -378,7 +378,7 @@ Test(linkedList_pop, pop_3_v2)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -392,7 +392,7 @@ Test(linkedList_pop, pop_3_v2)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_3_v3)
+Test(linkedList_remove, pop_3_v3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -404,7 +404,7 @@ Test(linkedList_pop, pop_3_v3)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 0);
+    int *pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -417,7 +417,7 @@ Test(linkedList_pop, pop_3_v3)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
-    pop_elt = linkedList_pop(&linked_list, 1);
+    pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -430,7 +430,7 @@ Test(linkedList_pop, pop_3_v3)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -444,7 +444,7 @@ Test(linkedList_pop, pop_3_v3)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_3_v4)
+Test(linkedList_remove, pop_3_v4)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -456,7 +456,7 @@ Test(linkedList_pop, pop_3_v4)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 2);
+    int *pop_elt = linkedList_remove(&linked_list, 2);
 
     // Check popped element
 
@@ -469,7 +469,7 @@ Test(linkedList_pop, pop_3_v4)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -482,7 +482,7 @@ Test(linkedList_pop, pop_3_v4)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -496,7 +496,7 @@ Test(linkedList_pop, pop_3_v4)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_3_v5)
+Test(linkedList_remove, pop_3_v5)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -508,7 +508,7 @@ Test(linkedList_pop, pop_3_v5)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 1);
+    int *pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -521,7 +521,7 @@ Test(linkedList_pop, pop_3_v5)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -534,7 +534,7 @@ Test(linkedList_pop, pop_3_v5)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
@@ -548,7 +548,7 @@ Test(linkedList_pop, pop_3_v5)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_pop, pop_3_v6)
+Test(linkedList_remove, pop_3_v6)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -560,7 +560,7 @@ Test(linkedList_pop, pop_3_v6)
     linkedList_push(&linked_list, &push_elt2);
     linkedList_push(&linked_list, &push_elt3);
 
-    int *pop_elt = linkedList_pop(&linked_list, 1);
+    int *pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -573,7 +573,7 @@ Test(linkedList_pop, pop_3_v6)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 2);
 
-    pop_elt = linkedList_pop(&linked_list, 1);
+    pop_elt = linkedList_remove(&linked_list, 1);
 
     // Check popped element
 
@@ -586,7 +586,7 @@ Test(linkedList_pop, pop_3_v6)
     // Check linked_list->size
     cr_assert_eq(linked_list.size, 1);
 
-    pop_elt = linkedList_pop(&linked_list, 0);
+    pop_elt = linkedList_remove(&linked_list, 0);
 
     // Check popped element
 
