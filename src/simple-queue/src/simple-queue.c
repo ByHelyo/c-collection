@@ -17,6 +17,7 @@ void simpleQueue_enqueue(struct SimpleQueue *simple_queue, void *elt)
     struct Node *node = calloc(1, sizeof(struct Node));
     if (node == NULL)
         err(1, "Failed allocation");
+
     node->data = elt;
     node->next = NULL;
 
@@ -25,7 +26,7 @@ void simpleQueue_enqueue(struct SimpleQueue *simple_queue, void *elt)
         simple_queue->head = node;
         simple_queue->tail = node;
 
-        simple_queue->size += 1;
+        ++simple_queue->size;
 
         return;
     }
@@ -34,7 +35,7 @@ void simpleQueue_enqueue(struct SimpleQueue *simple_queue, void *elt)
     simple_queue->tail->next = node;
     simple_queue->tail = node;
 
-    simple_queue->size += 1;
+    ++simple_queue->size;
 }
 
 void *simpleQueue_dequeue(struct SimpleQueue *simple_queue)
@@ -49,7 +50,7 @@ void *simpleQueue_dequeue(struct SimpleQueue *simple_queue)
     void *ret = head_node->data;
 
     simple_queue->head = simple_queue->head->next;
-    simple_queue->size -= 1;
+    --simple_queue->size;
 
     free(head_node);
     return ret;

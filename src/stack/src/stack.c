@@ -27,7 +27,7 @@ void stack_push(struct Stack *stack, void *elt)
     node->data = elt;
 
     stack->head = node;
-    stack->size += 1;
+    ++stack->size;
 }
 
 void *stack_pop(struct Stack *stack)
@@ -41,7 +41,7 @@ void *stack_pop(struct Stack *stack)
     struct Node *first_node = stack->head;
     void *ret = first_node->data;
 
-    stack->size -= 1;
+    --stack->size;
     stack->head = stack->head->next;
 
     free(first_node);
