@@ -52,11 +52,19 @@ void linkedList_append(struct LinkedList *linked_list, void *elt);
 void linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt);
 
 /**
+ * Pop an element from the linked list
+ *
+ * @param linked_list
+ * @return popped element
+ */
+void *linkedList_pop(struct LinkedList *linked_list);
+
+/**
  * Remove an element at the specified ''index'' in the linked list and return it
  *
  * @param linked_list
  * @param index
- * @return popped element
+ * @return removed element
  */
 void *linkedList_remove(struct LinkedList *linked_list, size_t index);
 

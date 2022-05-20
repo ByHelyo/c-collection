@@ -96,6 +96,22 @@ void linkedList_insert(struct LinkedList *linked_list, size_t index, void *elt)
     ++linked_list->size;
 }
 
+void *linkedList_pop(struct LinkedList *linked_list)
+{
+    if (linked_list == NULL)
+        errx(1, "linked_list is NULL");
+
+    struct Node *removed_node = linked_list->head;
+    void *removed_element = removed_node->data;
+
+    linked_list->head = linked_list->head->next;
+
+    free(removed_node);
+
+    --linked_list->size;
+    return removed_element;
+}
+
 void *linkedList_remove(struct LinkedList *linked_list, size_t index)
 {
     if (linked_list == NULL)
@@ -106,15 +122,7 @@ void *linkedList_remove(struct LinkedList *linked_list, size_t index)
 
     if (index == 0)
     {
-        struct Node *removed_node = linked_list->head;
-        void *removed_element = removed_node->data;
-
-        linked_list->head = linked_list->head->next;
-
-        free(removed_node);
-
-        --linked_list->size;
-        return removed_element;
+        return linkedList_pop(linked_list);
     }
 
     struct Node *prev_node = NULL;
@@ -161,7 +169,7 @@ void linkedList_clear(struct LinkedList *linked_list, void (*free_function)(void
 {
     while (linked_list->size > 0)
     {
-        void *popped_elt = linkedList_remove(linked_list, 0);
+        void *popped_elt = linkedList_pop(linked_list);
 
         if (free_function != NULL)
         {
