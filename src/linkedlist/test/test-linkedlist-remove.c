@@ -3,21 +3,21 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(linkedList_remove, err_remove_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, remove_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList *linked_list = NULL;
 
     linkedList_remove(linked_list, 0);
 }
 
-Test(linkedList_remove, err_remove_empty, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, remove_empty, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
     linkedList_remove(&linked_list, 0);
 }
 
-Test(linkedList_remove, remove_size_1_index_0)
+Test(linkedList_remove, remove_at_0_size_1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -39,7 +39,7 @@ Test(linkedList_remove, remove_size_1_index_0)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, err_remove_size_1_index_1, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, remove_at_1_size_1, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -50,7 +50,7 @@ Test(linkedList_remove, err_remove_size_1_index_1, .exit_code = 1, .init = cr_re
     linkedList_remove(&linked_list, 1);
 }
 
-Test(linkedList_remove, remove_size_2_index_0)
+Test(linkedList_remove, remove_at_0_size_2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -76,7 +76,7 @@ Test(linkedList_remove, remove_size_2_index_0)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_remove, remove_size_2_index_1)
+Test(linkedList_remove, remove_at_1_size_2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -102,7 +102,7 @@ Test(linkedList_remove, remove_size_2_index_1)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_remove, err_remove_size_2_index_2, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, remove_at_2_size_2, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -115,7 +115,7 @@ Test(linkedList_remove, err_remove_size_2_index_2, .exit_code = 1, .init = cr_re
     linkedList_remove(&linked_list, 2);
 }
 
-Test(linkedList_remove, remove_size_3_index_0)
+Test(linkedList_remove, remove_at_0_size_3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -143,7 +143,7 @@ Test(linkedList_remove, remove_size_3_index_0)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_remove, remove_size_3_index_1)
+Test(linkedList_remove, remove_at_1_size_3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -171,7 +171,7 @@ Test(linkedList_remove, remove_size_3_index_1)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_remove, remove_size_3_index_2)
+Test(linkedList_remove, remove_at_2_size_3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -199,7 +199,7 @@ Test(linkedList_remove, remove_size_3_index_2)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_remove, err_remove_size_3_index_3, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_remove, remove_at_3_size_3, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -214,7 +214,7 @@ Test(linkedList_remove, err_remove_size_3_index_3, .exit_code = 1, .init = cr_re
     linkedList_remove(&linked_list, 3);
 }
 
-Test(linkedList_remove, remove_2_v1)
+Test(linkedList_remove, remove_size_2_v1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -251,7 +251,7 @@ Test(linkedList_remove, remove_2_v1)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_2_v2)
+Test(linkedList_remove, remove_size_2_v2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -288,7 +288,7 @@ Test(linkedList_remove, remove_2_v2)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_3_v1)
+Test(linkedList_remove, remove_size_3_v1)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -340,7 +340,7 @@ Test(linkedList_remove, remove_3_v1)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_3_v2)
+Test(linkedList_remove, remove_size_3_v2)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -392,7 +392,7 @@ Test(linkedList_remove, remove_3_v2)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_3_v3)
+Test(linkedList_remove, remove_size_3_v3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -444,7 +444,7 @@ Test(linkedList_remove, remove_3_v3)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_3_v4)
+Test(linkedList_remove, remove_size_3_v4)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -496,7 +496,7 @@ Test(linkedList_remove, remove_3_v4)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_3_v5)
+Test(linkedList_remove, remove_size_3_v5)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -548,7 +548,7 @@ Test(linkedList_remove, remove_3_v5)
     cr_assert_eq(linked_list.size, 0);
 }
 
-Test(linkedList_remove, remove_3_v6)
+Test(linkedList_remove, remove_size_3_v6)
 {
     struct LinkedList linked_list = linkedList_build();
 

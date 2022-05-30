@@ -3,7 +3,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(linkedList_append, err_append_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_append, append_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList *linked_list = NULL;
 
@@ -12,7 +12,7 @@ Test(linkedList_append, err_append_NULL, .exit_code = 1, .init = cr_redirect_std
     linkedList_append(linked_list, &elt1);
 }
 
-Test(linkedList_append, append_1)
+Test(linkedList_append, append_1_elt)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -34,7 +34,7 @@ Test(linkedList_append, append_1)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_append, append_2)
+Test(linkedList_append, append_2_elt)
 {
     struct LinkedList linked_list = linkedList_build();
 

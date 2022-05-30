@@ -3,21 +3,21 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(simpleQueue_dequeue, err_dequeue_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(simpleQueue_dequeue, dequeue_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct SimpleQueue *simple_queue = NULL;
 
     simpleQueue_dequeue(simple_queue);
 }
 
-Test(simpleQueue_dequeue, err_dequeue_empty, .exit_code = 1, .init = cr_redirect_stderr)
+Test(simpleQueue_dequeue, dequeue_empty, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct SimpleQueue simple_queue = simpleQueue_build();
 
     simpleQueue_dequeue(&simple_queue);
 }
 
-Test(simpleQueue_dequeue, dequeue_1)
+Test(simpleQueue_dequeue, dequeue_1_elt)
 {
     struct SimpleQueue simple_queue = simpleQueue_build();
 
@@ -36,7 +36,7 @@ Test(simpleQueue_dequeue, dequeue_1)
     cr_assert_eq(simple_queue.size, 0);
 }
 
-Test(simpleQueue_dequeue, dequeue_2)
+Test(simpleQueue_dequeue, dequeue_2_elt)
 {
     struct SimpleQueue simple_queue = simpleQueue_build();
 
@@ -67,7 +67,7 @@ Test(simpleQueue_dequeue, dequeue_2)
     cr_assert_eq(simple_queue.size, 0);
 }
 
-Test(simpleQueue_dequeue, dequeue_3)
+Test(simpleQueue_dequeue, dequeue_3_elt)
 {
     struct SimpleQueue simple_queue = simpleQueue_build();
 

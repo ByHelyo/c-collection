@@ -3,21 +3,21 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(stack_peek, err_peek_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(stack_peek, peek_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct Stack *stack = NULL;
 
     stack_peek(stack);
 }
 
-Test(stack_peek, err_peek_empty, .exit_code = 1, .init = cr_redirect_stderr)
+Test(stack_peek, peek_empty, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct Stack stack = stack_build();
 
     stack_peek(&stack);
 }
 
-Test(stack_peek, err_peek_1)
+Test(stack_peek, peek_size_1)
 {
     struct Stack stack = stack_build();
 
@@ -41,7 +41,7 @@ Test(stack_peek, err_peek_1)
     stack_clear(&stack, NULL);
 }
 
-Test(stack_peek, err_peek_2)
+Test(stack_peek, peek_size_2)
 {
     struct Stack stack = stack_build();
 

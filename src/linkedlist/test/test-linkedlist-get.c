@@ -3,7 +3,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-Test(linkedList_get, err_get_NULL, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_get, get_NULL, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList *linked_list = NULL;
 
@@ -17,7 +17,7 @@ Test(linkedList_get, get_empty, .exit_code = 1, .init = cr_redirect_stderr)
     linkedList_get(&linked_list, 10);
 }
 
-Test(linkedList_get, get_0)
+Test(linkedList_get, get_at_0_size_3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -45,7 +45,7 @@ Test(linkedList_get, get_0)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_get, get_1)
+Test(linkedList_get, get_at_1_size_3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -73,7 +73,7 @@ Test(linkedList_get, get_1)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_get, get_2)
+Test(linkedList_get, get_at_2_size_3)
 {
     struct LinkedList linked_list = linkedList_build();
 
@@ -101,7 +101,7 @@ Test(linkedList_get, get_2)
     linkedList_clear(&linked_list, NULL);
 }
 
-Test(linkedList_get, get_3, .exit_code = 1, .init = cr_redirect_stderr)
+Test(linkedList_get, get_at_3_size_3, .exit_code = 1, .init = cr_redirect_stderr)
 {
     struct LinkedList linked_list = linkedList_build();
 
